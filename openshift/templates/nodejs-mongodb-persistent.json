@@ -16,7 +16,7 @@
   },
   "message": "The following service(s) have been created in your project: ${NAME}, ${DATABASE_SERVICE_NAME}.\n\nFor more information about using this template, including OpenShift considerations, see https://github.com/openshift/nodejs-ex/blob/master/README.md.",
   "labels": {
-    "template": "nodejs-mongo-persistent"
+    "template": "os-demo-complex-node"
   },
   "objects": [
     {
@@ -179,7 +179,7 @@
             "type": "ConfigChange"
           }
         ],
-        "replicas": 1,
+        "replicas": 3,
         "selector": {
           "name": "${NAME}"
         },
@@ -241,7 +241,7 @@
                   "timeoutSeconds": 3,
                   "initialDelaySeconds": 3,
                   "httpGet": {
-                    "path": "/pagecount",
+                    "path": "/tasks",
                     "port": 8080
                   }
                 },
@@ -249,7 +249,7 @@
                   "timeoutSeconds": 3,
                   "initialDelaySeconds": 30,
                   "httpGet": {
-                    "path": "/pagecount",
+                    "path": "/tasks",
                     "port": 8080
                   }
                 },
@@ -467,7 +467,7 @@
       "name": "VOLUME_CAPACITY",
       "displayName": "Volume Capacity",
       "description": "Volume space available for data, e.g. 512Mi, 2Gi",
-      "value": "1Gi",
+      "value": "512Mi",
       "required": true
     },
     {
